@@ -1,33 +1,49 @@
-# Administer Active Directory Domain Services
+# Active Directory Project
 
-This guided project helps prepare you to manage Active Directory Domain Services, including creating and deploying domains, configuring Group Policy Objects, establishing and enforcing passwords, and maintaining the security of Active Directory.
+## Hardware Requirements
 
-## Setup
+- At least 16 GB of RAM
+- At least 250 GB of disk space
 
-The Setup section consists of three main tasks:
+## Step 1: Design Architecture
 
-- Install Hyper-V
-- Create Windows Server Domain Controller Virtual Machine
-- Create Windows Server Domain Member Server
-  
-if you're working in the cloud, you won't need Hyper-V on your local machine. Instead, you'll create virtual machines (VMs) in Azure that simulate your on-premises Windows Server environment.
+For this task, I used **draw.io** to design the network architecture. The setup consists of the following components:
 
-Steps to create VMs in Azure:
+- **Two Servers**:
+  - One for **Splunk** (for log aggregation, monitoring, and analysis)
+  - One for **Active Directory Domain Services (AD DS)** (to handle directory services)
 
-  - Step 1: Sign in to the Azure portal.
-  - Step 2: Navigate to Virtual Machines and click Create.
-  - Step 3: Select the Windows Server 2022 image from the list of available options. Choose the Windows Server 2022 Datacenter - Evaluation edition if you need a trial version.
-  - Step 4: Choose a size for the virtual machine (make sure to select one with at least 16 GB RAM if you need performance similar to a physical host).
-  - Step 5: Configure network settings, including setting up a virtual network and public IP address.
-  - Step 6: Review and create the VM. This will be your Domain Controller VM.
-    
-Repeat the process to create a second virtual machine, which will act as your Domain Member Server.
+- **Two Hosts**:
+  - A **Target Machine** running **Windows 10** (simulates a client machine)
+  - An **Attacker Machine** running **Kali Linux** (simulates potential security threats)
 
-## Step 1: Configure Domain Controller Operations
+- **Network Components**:
+  - **Switch**: To interconnect all the devices in the local network
+  - **Router**: To route traffic between networks and the internet
+  - **Firewall**: To protect the internal network from external threats and send logs to Splunk 
 
-## Step 2: Configure User Management Operations
+- **Cloud (Internet)**:
+  - Represents the external internet, allowing access to outside resources or cloud services
 
-## Step 3: Manage Password Policies
+- **Sysmon**:
+  - Installed on key machines (such as the AD server and target machine) to monitor and log critical system events. This helps detect suspicious activities like abnormal process creation, file manipulation, or network traffic.
+  - **Splunk Universal Forwarder** is installed on the AD and target machines to send logs and events to the Splunk server for centralized monitoring.
 
-## Step 4: Configure Security Settings
+### Additional Recommendations:
+- **Network Segmentation**: Consider dividing the network into segments using VLANs to increase security and limit potential attack surfaces.
+- **SIEM Integration**: Use Splunk for security monitoring and analysis by integrating all logs from the network (e.g., from Sysmon, firewall, AD logs).
+- **Backup and Recovery**: Implement a backup system for critical data (especially for the Active Directory database) to ensure disaster recovery.
+- **Encryption**: Ensure communication between the servers and hosts is encrypted to prevent eavesdropping or data theft.
 
+![image](https://github.com/user-attachments/assets/8e98b4ba-0b79-45f3-8c5d-04ba19c967e5)
+
+This architecture provides a robust foundation for both operational Active Directory services and security monitoring, with Splunk and Sysmon enhancing the security and visibility of system activities.
+
+
+## Step2 : Install and deploy virtual machines
+
+## Step3 : Install and configure sysmon and splunk
+
+## Step4 : Configure AD(Active Directory)
+
+## Step5: Generate brute force attack using Kali linux
