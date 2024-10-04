@@ -40,7 +40,32 @@ For this task, I used **draw.io** to design the network architecture. The setup 
 This architecture provides a robust foundation for both operational Active Directory services and security monitoring, with Splunk and Sysmon enhancing the security and visibility of system activities.
 
 
-## Step2 : Install and deploy virtual machines
+## Step 2: Install and Deploy Virtual Machines
+
+To use Active Directory, a server must install the **Active Directory Domain Services (AD DS)** role, and that server must be promoted to a **Domain Controller**. The Domain Controller will handle authentication and authorization using the **Kerberos** protocol.
+
+### Install VirtualBox:
+
+Download and install **VirtualBox** using the following link:
+- [VirtualBox Downloads](https://www.virtualbox.org/wiki/Downloads)
+
+### Install the Target VM:
+
+1. Download the **Windows 10 ISO** for the target VM using the following link:
+   - [Windows 10 Download](https://www.microsoft.com/en-ca/software-download/windows10)
+   
+2. Deploy the ISO inside **VirtualBox** by creating a new virtual machine and configuring it to boot from the downloaded ISO image.
+
+3. Follow the installation steps to set up Windows 10 as the target machine for testing.
+
+### Additional Notes:
+- Once the target VM is deployed, you can configure it to connect to the Active Directory Domain.
+- The target VM should have the **Splunk Universal Forwarder** and **Sysmon** installed to monitor and forward security events to your Splunk server for centralized log management.
+- Ensure the network settings in VirtualBox are configured properly to allow the target VM to communicate with other machines in the network.
+
+### Install Attacker VM:
+
+### Install 
 
 ## Step3 : Install and configure sysmon and splunk
 
