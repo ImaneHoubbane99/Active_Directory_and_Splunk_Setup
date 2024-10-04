@@ -29,7 +29,7 @@ For this task, I used **draw.io** to design the network architecture. The setup 
   - Installed on key machines (such as the AD server and target machine) to monitor and log critical system events. This helps detect suspicious activities like abnormal process creation, file manipulation, or network traffic.
   - **Splunk Universal Forwarder** is installed on the AD and target machines to send logs and events to the Splunk server for centralized monitoring.
 
-### Additional Recommendations:
+#### Additional Recommendations:
 - **Network Segmentation**: Consider dividing the network into segments using VLANs to increase security and limit potential attack surfaces.
 - **SIEM Integration**: Use Splunk for security monitoring and analysis by integrating all logs from the network (e.g., from Sysmon, firewall, AD logs).
 - **Backup and Recovery**: Implement a backup system for critical data (especially for the Active Directory database) to ensure disaster recovery.
@@ -49,23 +49,42 @@ To use Active Directory, a server must install the **Active Directory Domain Ser
 Download and install **VirtualBox** using the following link:
 - [VirtualBox Downloads](https://www.virtualbox.org/wiki/Downloads)
 
-### Install the Target VM:
+### Install the Target VM: 4GB -> windows10 pro -> install windows only->
 
 1. Download the **Windows 10 ISO** for the target VM using the following link:
    - [Windows 10 Download](https://www.microsoft.com/en-ca/software-download/windows10)
    
 2. Deploy the ISO inside **VirtualBox** by creating a new virtual machine and configuring it to boot from the downloaded ISO image.
 
-3. Follow the installation steps to set up Windows 10 as the target machine for testing.
-
-### Additional Notes:
-- Once the target VM is deployed, you can configure it to connect to the Active Directory Domain.
-- The target VM should have the **Splunk Universal Forwarder** and **Sysmon** installed to monitor and forward security events to your Splunk server for centralized log management.
-- Ensure the network settings in VirtualBox are configured properly to allow the target VM to communicate with other machines in the network.
+3. Follow the installation steps to set up Windows 10 as the target machine.
 
 ### Install Attacker VM:
 
-### Install 
+1. Download the **Kali** for the attacker VM using the following link:
+   - [Kali Download](https://www.kali.org/)
+
+2. Deploy the ISO inside **VirtualBox** by creating a new virtual machine and configuring it to boot from the downloaded ISO image.
+
+#### Additional Recommendations:
+- Default credentials are: kali/kali
+   
+### Install Active Directory server: stantard evaluation/50Gb
+
+1. Download the **Windows server 2022 ISO** for the target VM using the following link:
+   - [Windows server 2022 Download](https://www.microsoft.com/en-ca/software-download/windows10)
+   
+2. Deploy the ISO inside **VirtualBox** by creating a new virtual machine and configuring it to boot from the downloaded ISO image.
+
+3. Follow the installation steps to set up Windows 10 as the target machine.
+
+### Install Splunk server: 100Gb
+
+1. Download the **Ubuntu server** for the target VM using the following link:
+   - [Ubuntu server Download](https://www.microsoft.com/en-ca/software-download/windows10)
+   
+2. Deploy the ISO inside **VirtualBox** by creating a new virtual machine and configuring it to boot from the downloaded ISO image.
+
+3. Follow the installation steps to set up Windows 10 as the target machine.
 
 ## Step3 : Install and configure sysmon and splunk
 
