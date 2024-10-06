@@ -131,10 +131,20 @@ Download and install **VirtualBox** using the following link:
     ![Splunk Auto-start](https://github.com/user-attachments/assets/ccd864ab-9f20-45b6-932b-697a16c902ca)
 
 
-## Step3 : Install and configure sysmon sysmon and splunk forwarder on target machine and Active Directory server
-  
+## Step4 : Install and configure sysmon sysmon and splunk forwarder on target machine and Active Directory server
+  I will perfoem steps for installing sysmon and splunk forwarder on directory server (same steps can be followed for target machine)
+   1-change name to ADDS (for other target-PC)
+   2-change the ip from dhcp to 192.168.10.7/24 (192.168.10.100/24) 192.168.10.1 dns 8.8.8.8
+   we can connect to the splunk using  192.168.10.10:8000
+
+   -install splunk universal forwarder
+ on splunk.com install splunk forwarder : check the box and on promise : username: admin and generate password
+    receiving indexer is ip of splunk server
+    
+    -install sysmon:
+   
 
 
-## Step4 : Configure AD(Active Directory)
+## Step5 : Configure AD(Active Directory)
 
-## Step5: Generate brute force attack using Kali linux
+## Step6: Generate brute force attack using Kali linux
