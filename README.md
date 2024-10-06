@@ -137,11 +137,26 @@ Download and install **VirtualBox** using the following link:
    2-change the ip from dhcp to 192.168.10.7/24 (192.168.10.100/24) 192.168.10.1 dns 8.8.8.8
    we can connect to the splunk using  192.168.10.10:8000
 
+   ![image](https://github.com/user-attachments/assets/145410dd-ec0a-4b1d-86e9-85e32a7db066)
+
+
    -install splunk universal forwarder
  on splunk.com install splunk forwarder : check the box and on promise : username: admin and generate password
     receiving indexer is ip of splunk server
+    ![image](https://github.com/user-attachments/assets/19e0290a-da52-429e-8562-1ded63b1083e)
+
     
     -install sysmon:
+    install sysmon by visiting microsof t link : https://learn.microsoft.com/fr-fr/sysinternals/downloads/sysmon
+    sysmon olaf config : sysmonconfig.xml save as downloads : https://github.com/olafhartong/sysmon-modular/blob/master/sysmonconfig.xml
+    copy path where sysmon extracted: path
+    run powershell with administrator privellege : cd path / Sysmon -i conf-file
+    ![image](https://github.com/user-attachments/assets/f100b437-d567-4e5a-b55a-66e07588f242)
+
+    To instruct our splunk forwarder on what to send to splunk server to do this we custolize the default file inputs.conf located in : C:\Programm Files\SplunkUniversalForwarder\etc\system\local and copy and paste inputs.conf file :
+
+    restart splunkuniversalforwarder because we adding a new file /change log on because NT_SErvice/Splunkforwarder cannot collect logs due to permission use local and apply
+
    
 
 
