@@ -88,7 +88,22 @@ Download and install **VirtualBox** using the following link:
 
 ## Step3 : Install and configure sysmon and splunk
 
-To have our VMs in the same network , we create nat interface :
+- To have our VMs in the same network :
+
+First,we create nat interface and i name it AD-Project:
+
+![image](https://github.com/user-attachments/assets/c34f5439-aff3-4db0-a17d-dfc054b3f1b9)
+
+Finally in each VM we select NAT Network and specify the name of NAT network in my case is AD-Project :
+
+![image](https://github.com/user-attachments/assets/fad578e7-6ebe-46e2-a57d-2141904c0ae5)
+
+- Make the address IP of splunk server static by ensures consistent network accessibility for reliable integrations and simplifies security configurations.Go to the file inside /etc/netplan and make these changes:
+![image](https://github.com/user-attachments/assets/f20b9831-cda9-45ab-bde9-125952e3d3c3)
+then tape sudo netplan apply to apply our changes
+![image](https://github.com/user-attachments/assets/277f1438-0152-410a-a66c-e9b4679dff24)
+
+- 
 
 
 ## Step4 : Configure AD(Active Directory)
