@@ -86,24 +86,53 @@ Download and install **VirtualBox** using the following link:
 
 3. Follow the installation steps to set up Windows 10 as the target machine.
 
-## Step3 : Install and configure sysmon and splunk
+## Step3 : Install and configure sysmon Splunk instance on splunk server VM
 
-- To have our VMs in the same network :
+- **To have our VMs in the same network:**
 
-First,we create nat interface and i name it AD-Project:
+  1. **Create a NAT Interface:**
+     - First, create a NAT interface and name it "AD-Project".
+     
+       ![NAT Interface Creation](https://github.com/user-attachments/assets/c34f5439-aff3-4db0-a17d-dfc054b3f1b9)
+  
+  2. **Configure VMs to Use NAT Network:**
+     - In each VM, select NAT Network and specify the name of the NAT network. In my case, it is "AD-Project".
+     
+       ![NAT Network Configuration](https://github.com/user-attachments/assets/fad578e7-6ebe-46e2-a57d-2141904c0ae5)
 
-![image](https://github.com/user-attachments/assets/c34f5439-aff3-4db0-a17d-dfc054b3f1b9)
+- **Static IP Configuration for Splunk Server:**
+  - Ensure consistent network accessibility and simplify security configurations by making the IP address of the Splunk server static.
+  - Navigate to the file within `/etc/netplan` and apply the following changes:
+  
+    ![Netplan Configuration](https://github.com/user-attachments/assets/f20b9831-cda9-45ab-bde9-125952e3d3c3)
+  
+  - Execute the changes with `sudo netplan apply`:
+  
+    ![Apply Netplan](https://github.com/user-attachments/assets/277f1438-0152-410a-a66c-e9b4679dff24)
 
-Finally in each VM we select NAT Network and specify the name of NAT network in my case is AD-Project :
+- **Downloading and Installing Splunk:**
+  - Download the Splunk instance from [splunk.com](https://splunk.com) and select the `.deb` package, appropriate for Ubuntu systems.
+  - Share files between the host and VM. I use USB for sharing, but you can choose other methods like shared folders. Identify the USB drive using `lsblk`, then mount it:
+  
+    ```bash
+    sudo mkdir /home/splunk
+    sudo mount /dev/sdxx /home/splunk  # Replace 'sdxx' with your device identifier, e.g., /dev/sdc1
+    ```
+  
+  - Install Splunk on the VM:
+  
+    ![Splunk Installation](https://github.com/user-attachments/assets/9a6d3dd4-b145-4e48-ba9c-3c028144bbdb)
+  
+  - Start Splunk by navigating to `/opt/splunk/bin` and executing `./splunk start`. During this process, you will specify the username and password for the Splunk instance.
+  
+- **Auto-start Splunk on VM Boot:**
+  - Configure Splunk to automatically run each time the VM boots up.
+  
+    ![Splunk Auto-start](https://github.com/user-attachments/assets/ccd864ab-9f20-45b6-932b-697a16c902ca)
 
-![image](https://github.com/user-attachments/assets/fad578e7-6ebe-46e2-a57d-2141904c0ae5)
 
-- Make the address IP of splunk server static by ensures consistent network accessibility for reliable integrations and simplifies security configurations.Go to the file inside /etc/netplan and make these changes:
-![image](https://github.com/user-attachments/assets/f20b9831-cda9-45ab-bde9-125952e3d3c3)
-then tape sudo netplan apply to apply our changes
-![image](https://github.com/user-attachments/assets/277f1438-0152-410a-a66c-e9b4679dff24)
-
-- 
+## Step3 : Install and configure sysmon sysmon and splunk forwarder on target machine and Active Directory server
+  
 
 
 ## Step4 : Configure AD(Active Directory)
