@@ -88,6 +88,9 @@ Download and install **VirtualBox** using the following link:
 
 ## Step3 : Install and configure sysmon and splunk
 
+To have our VMs in the same network , we create nat interface :
+
+
 ## Step4 : Configure AD(Active Directory)
 
 ## Step5: Generate brute force attack using Kali linux
