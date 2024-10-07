@@ -163,6 +163,8 @@ Download and install **VirtualBox** using the following link:
 5. **Configure Splunk Forwarder:**
    - Customize the default `inputs.conf` file located at `C:\Program Files\SplunkUniversalForwarder\etc\system\local`.
    - Copy and paste the necessary configuration into `inputs.conf`.
+   - To grant the Splunk Universal Forwarder the necessary permissions to retrieve data from the host, you'll need to change the Log On option for the Splunk Forwarder service to use an 
+     account that has sufficient permissions.
    - Restart the Splunk Universal Forwarder to apply changes.
 
    ![Forwarder Configuration](https://github.com/user-attachments/assets/a5a77c16-db9d-492c-86b2-de7e03f4b0c4)
