@@ -132,33 +132,50 @@ Download and install **VirtualBox** using the following link:
 
 
 ## Step4 : Install and configure sysmon sysmon and splunk forwarder on target machine and Active Directory server
-  I will perfoem steps for installing sysmon and splunk forwarder on directory server (same steps can be followed for target machine)
-   1-change name to ADDS (for other target-PC)
-   2-change the ip from dhcp to 192.168.10.7/24 (192.168.10.100/24) 192.168.10.1 dns 8.8.8.8
-   we can connect to the splunk using  192.168.10.10:8000
+  I will perform steps for installing Sysmon and Splunk Forwarder on the directory server (the same steps can be followed for the target machine):
 
-   ![image](https://github.com/user-attachments/assets/145410dd-ec0a-4b1d-86e9-85e32a7db066)
+1. **Change hostname to ADDS:**
+   - For other targets, use "target-PC."
 
+2. **Set a static IP address:**
+   - Change the IP from DHCP to `192.168.10.7/24`. For target device, use `192.168.10.100/24`.
+   - Set DNS to `8.8.8.8`.
+   - Connect to the Splunk server using `192.168.10.10:8000`.
 
-   -install splunk universal forwarder
- on splunk.com install splunk forwarder : check the box and on promise : username: admin and generate password
-    receiving indexer is ip of splunk server
-    ![image](https://github.com/user-attachments/assets/19e0290a-da52-429e-8562-1ded63b1083e)
+   ![Network Configuration](https://github.com/user-attachments/assets/145410dd-ec0a-4b1d-86e9-85e32a7db066)
 
-    
-    -install sysmon:
-    install sysmon by visiting microsof t link : https://learn.microsoft.com/fr-fr/sysinternals/downloads/sysmon
-    sysmon olaf config : sysmonconfig.xml save as downloads : https://github.com/olafhartong/sysmon-modular/blob/master/sysmonconfig.xml
-    copy path where sysmon extracted: path
-    run powershell with administrator privellege : cd path / Sysmon -i conf-file
-    ![image](https://github.com/user-attachments/assets/f100b437-d567-4e5a-b55a-66e07588f242)
+3. **Install Splunk Universal Forwarder:**
+   - On [splunk.com](https://splunk.com), install the Splunk Forwarder. Check the box for on-premise installation.
+   - Username: `admin` and generate a password.
+   - Set the receiving indexer to the IP of the Splunk server.
 
-    To instruct our splunk forwarder on what to send to splunk server to do this we custolize the default file inputs.conf located in : C:\Programm Files\SplunkUniversalForwarder\etc\system\local and copy and paste inputs.conf file :
+   ![Splunk Forwarder Installation](https://github.com/user-attachments/assets/19e0290a-da52-429e-8562-1ded63b1083e)
 
-    restart splunkuniversalforwarder because we adding a new file /change log on because NT_SErvice/Splunkforwarder cannot collect logs due to permission use local and apply
+4. **Install Sysmon:**
+   - Install Sysmon by visiting the [Microsoft Sysinternals download page](https://learn.microsoft.com/fr-fr/sysinternals/downloads/sysmon).
+   - Download the Sysmon configuration file from Olaf Hartong's repository: [sysmonconfig.xml](https://github.com/olafhartong/sysmon-modular/blob/master/sysmonconfig.xml).
+   - Extract Sysmon to a chosen path.
+   - Run PowerShell as an administrator and navigate to the directory where Sysmon was extracted.
+   - Execute: `Sysmon -i sysmonconfig.xml`.
 
-   
+   ![Sysmon Installation](https://github.com/user-attachments/assets/f100b437-d567-4e5a-b55a-66e07588f242)
 
+5. **Configure Splunk Forwarder:**
+   - Customize the default `inputs.conf` file located at `C:\Program Files\SplunkUniversalForwarder\etc\system\local`.
+   - Copy and paste the necessary configuration into `inputs.conf`.
+   - Restart the Splunk Universal Forwarder to apply changes.
+
+   ![Forwarder Configuration](https://github.com/user-attachments/assets/a5a77c16-db9d-492c-86b2-de7e03f4b0c4)
+
+6. **Create an index in Splunk called "endpoint":**
+
+   ![Create Index](https://github.com/user-attachments/assets/b2a6c66a-69a0-4612-9db7-2febdaab7cbf)
+
+7. **Enable Splunk server to receive data:**
+   - Navigate to `Settings > Forwarding and Receiving > Configure Receiving > New Receiving Port`.
+   - Set the receiving port to `9997`.
+
+   ![Configure Receiving](https://github.com/user-attachments/assets/78d781c9-902b-4a88-b36b-a2b08a6f2bf9)
 
 ## Step5 : Configure AD(Active Directory)
 
