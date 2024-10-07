@@ -176,6 +176,8 @@ Download and install **VirtualBox** using the following link:
    - Set the receiving port to `9997`.
 
    ![Configure Receiving](https://github.com/user-attachments/assets/78d781c9-902b-4a88-b36b-a2b08a6f2bf9)
+   
+At the end, if you install Sysmon and the Splunk Forwarder on the target VM, you will see two hosts in the Splunk search.
 
 ## Step5 : Configure AD(Active Directory)
 
