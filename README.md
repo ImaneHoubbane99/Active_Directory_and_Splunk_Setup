@@ -1,5 +1,3 @@
-![image](https://github.com/user-attachments/assets/112fbec2-a37a-4595-9d9e-b7bfa4531531)# Active Directory Project
-
 ## Hardware Requirements
 
 - At least 16 GB of RAM
