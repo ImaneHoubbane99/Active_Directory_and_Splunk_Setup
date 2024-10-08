@@ -197,7 +197,7 @@ At the end, if you install Sysmon and the Splunk Forwarder on the target VM, you
 
    ![New Forest](https://github.com/user-attachments/assets/99277b9f-99d6-4cb4-adc7-e41e0ae73576)
 
-- Enter the password: `Test2024`
+- Enter the password: 
 
    ![Password](https://github.com/user-attachments/assets/3f0014e2-78f9-49c8-aadd-cd1abb6139ea)
 
@@ -215,11 +215,11 @@ At the end, if you install Sysmon and the Splunk Forwarder on the target VM, you
    ![Create OU](https://github.com/user-attachments/assets/dc4dc56e-3f6c-4592-94d4-08527eaf5236)
 
 - Create users inside **IT** and **HR** organizational units:
-   - **IT**: Username: `jsmith`, Password: `Test2024`
+   - **IT**: 
 
      ![User IT](https://github.com/user-attachments/assets/c07ed9ff-ba9e-4255-b5e8-a36a6a21ed1a)
 
-   - **HR**: Username: `asmith`, Password: `Test2024`
+   - **HR**:
 
      ![User HR](https://github.com/user-attachments/assets/afa116d9-c8a2-427c-8248-7ad798279c84)
 
@@ -236,7 +236,7 @@ At the end, if you install Sysmon and the Splunk Forwarder on the target VM, you
    ![Join Domain](https://github.com/user-attachments/assets/7955e2ad-df6d-458e-90aa-9f560d69bcca)
 
 ### Authenticate Using a User Account
-- Log in using another user account: `jsmith / Test2024`
+- Log in using another user account: 
 
    ![User Authentication](https://github.com/user-attachments/assets/1456f9ac-4ca8-4c63-bd0f-b05b8fea5459)
 
