@@ -1,4 +1,4 @@
-# Active Directory Project
+![image](https://github.com/user-attachments/assets/112fbec2-a37a-4595-9d9e-b7bfa4531531)# Active Directory Project
 
 ## Hardware Requirements
 
@@ -182,6 +182,64 @@ Download and install **VirtualBox** using the following link:
 At the end, if you install Sysmon and the Splunk Forwarder on the target VM, you will see two hosts in the Splunk search.
 ![image](https://github.com/user-attachments/assets/0ee35868-f823-4113-b6e9-2593e6cabbcb)
 
-## Step5 : Configure AD(Active Directory)
+## Step5 : Install and configure Windows server : Active Directory (AD) and promote domain controller && configure target machine to join domain
+
+# Install and Configure Windows Server: Active Directory (AD) and Promote Domain Controller
+
+## Install Active Directory Domain Services (ADDS)
+- Go to **Server Manager** > **Manage** > **Add Roles and Features**
+- Select **Role-based or Feature-based installation**
+- Select **ADDS** and click **Install**
+
+   ![ADDS Installation](https://github.com/user-attachments/assets/7083cf2c-b316-4be6-9167-a49df3a6e68b)
+
+## Promote Server to Domain Controller
+- After installation, select **Promote this server to a domain controller**
+- Add a new forest and name it `mydomain.project`
+
+   ![New Forest](https://github.com/user-attachments/assets/99277b9f-99d6-4cb4-adc7-e41e0ae73576)
+
+- Enter the password: `Test2024`
+
+   ![Password](https://github.com/user-attachments/assets/3f0014e2-78f9-49c8-aadd-cd1abb6139ea)
+
+- Complete the installation.
+
+   ![Installation Process](https://github.com/user-attachments/assets/7aef4b5d-f467-4031-b37f-5b77556b43c4)
+
+## Create Users and Organizational Units
+- Open **Server Manager** > **Tools** > **Active Directory Users and Computers**
+
+   ![AD Users](https://github.com/user-attachments/assets/8681b5f8-e387-42d4-b2ab-9e85e9f19964)
+
+- Create Organizational Units: **IT** and **HR**
+
+   ![Create OU](https://github.com/user-attachments/assets/dc4dc56e-3f6c-4592-94d4-08527eaf5236)
+
+- Create users inside **IT** and **HR** organizational units:
+   - **IT**: Username: `jsmith`, Password: `Test2024`
+
+     ![User IT](https://github.com/user-attachments/assets/c07ed9ff-ba9e-4255-b5e8-a36a6a21ed1a)
+
+   - **HR**: Username: `asmith`, Password: `Test2024`
+
+     ![User HR](https://github.com/user-attachments/assets/afa116d9-c8a2-427c-8248-7ad798279c84)
+
+## Join Target Machine to the Domain
+- Change DNS IP from `8.8.8.8` to your domain controller’s IP (`192.168.10.7`) to resolve the domain name. Verify by using `ipconfig /all`
+
+   ![DNS Configuration](https://github.com/user-attachments/assets/b3edea04-5c90-451f-a4cf-f7c32a59eac9)
+
+   ![Verify DNS](https://github.com/user-attachments/assets/49b99792-7c3e-4fba-b2ec-80dcb4767761)
+
+- On the target machine, go to **PC** > **Properties** > **Advanced System Settings** > **Computer Name** > **Change** > **Domain**
+- Enter `mydomain.project` and use an Administrator account with the proper permissions to join the domain.
+
+   ![Join Domain](https://github.com/user-attachments/assets/7955e2ad-df6d-458e-90aa-9f560d69bcca)
+
+## Authenticate Using a User Account
+- Log in using another user account: `jsmith / Test2024`
+
+   ![User Authentication](https://github.com/user-attachments/assets/1456f9ac-4ca8-4c63-bd0f-b05b8fea5459)
 
 ## Step6: Generate brute force attack using Kali linux
