@@ -184,16 +184,14 @@ At the end, if you install Sysmon and the Splunk Forwarder on the target VM, you
 
 ## Step5 : Install and configure Windows server : Active Directory (AD) and promote domain controller && configure target machine to join domain
 
-# Install and Configure Windows Server: Active Directory (AD) and Promote Domain Controller
-
-## Install Active Directory Domain Services (ADDS)
+### Install Active Directory Domain Services (ADDS)
 - Go to **Server Manager** > **Manage** > **Add Roles and Features**
 - Select **Role-based or Feature-based installation**
 - Select **ADDS** and click **Install**
 
    ![ADDS Installation](https://github.com/user-attachments/assets/7083cf2c-b316-4be6-9167-a49df3a6e68b)
 
-## Promote Server to Domain Controller
+### Promote Server to Domain Controller
 - After installation, select **Promote this server to a domain controller**
 - Add a new forest and name it `mydomain.project`
 
@@ -207,7 +205,7 @@ At the end, if you install Sysmon and the Splunk Forwarder on the target VM, you
 
    ![Installation Process](https://github.com/user-attachments/assets/7aef4b5d-f467-4031-b37f-5b77556b43c4)
 
-## Create Users and Organizational Units
+### Create Users and Organizational Units
 - Open **Server Manager** > **Tools** > **Active Directory Users and Computers**
 
    ![AD Users](https://github.com/user-attachments/assets/8681b5f8-e387-42d4-b2ab-9e85e9f19964)
@@ -225,7 +223,7 @@ At the end, if you install Sysmon and the Splunk Forwarder on the target VM, you
 
      ![User HR](https://github.com/user-attachments/assets/afa116d9-c8a2-427c-8248-7ad798279c84)
 
-## Join Target Machine to the Domain
+### Join Target Machine to the Domain
 - Change DNS IP from `8.8.8.8` to your domain controller’s IP (`192.168.10.7`) to resolve the domain name. Verify by using `ipconfig /all`
 
    ![DNS Configuration](https://github.com/user-attachments/assets/b3edea04-5c90-451f-a4cf-f7c32a59eac9)
@@ -237,7 +235,7 @@ At the end, if you install Sysmon and the Splunk Forwarder on the target VM, you
 
    ![Join Domain](https://github.com/user-attachments/assets/7955e2ad-df6d-458e-90aa-9f560d69bcca)
 
-## Authenticate Using a User Account
+### Authenticate Using a User Account
 - Log in using another user account: `jsmith / Test2024`
 
    ![User Authentication](https://github.com/user-attachments/assets/1456f9ac-4ca8-4c63-bd0f-b05b8fea5459)
