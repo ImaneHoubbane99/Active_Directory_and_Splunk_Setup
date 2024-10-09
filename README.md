@@ -1,3 +1,4 @@
+# Simulating Active Directory and Security Monitoring with Splunk in a Virtualized Network Environment
 ## Presentation
 
 This project involves setting up a network architecture with two servers, one for Splunk (log aggregation) and another for Active Directory Domain Services (AD DS). Two hosts simulate a Windows 10 target machine and a Kali Linux attacker, connected via switches, a router, and a firewall, with Splunk handling monitoring and analysis. The environment is built on VirtualBox with necessary configurations for Sysmon and Splunk Universal Forwarder for log forwarding. This setup helps simulate security monitoring and attack detection using Splunk's capabilities.
