@@ -1,3 +1,7 @@
+## Presentation
+
+This project involves setting up a network architecture with two servers, one for Splunk (log aggregation) and another for Active Directory Domain Services (AD DS). Two hosts simulate a Windows 10 target machine and a Kali Linux attacker, connected via switches, a router, and a firewall, with Splunk handling monitoring and analysis. The environment is built on VirtualBox with necessary configurations for Sysmon and Splunk Universal Forwarder for log forwarding. This setup helps simulate security monitoring and attack detection using Splunk's capabilities.
+
 ## Hardware Requirements
 
 - At least 16 GB of RAM
@@ -47,7 +51,7 @@ To use Active Directory, a server must install the **Active Directory Domain Ser
 Download and install **VirtualBox** using the following link:
 - [VirtualBox Downloads](https://www.virtualbox.org/wiki/Downloads)
 
-### Install the Target VM: 4GB -> windows10 pro -> install windows only->
+### Install the Target VM: 
 
 1. Download the **Windows 10 ISO** for the target VM using the following link:
    - [Windows 10 Download](https://www.microsoft.com/en-ca/software-download/windows10)
@@ -55,6 +59,9 @@ Download and install **VirtualBox** using the following link:
 2. Deploy the ISO inside **VirtualBox** by creating a new virtual machine and configuring it to boot from the downloaded ISO image.
 
 3. Follow the installation steps to set up Windows 10 as the target machine.
+
+
+**Notes** : You need to choose the Pro version, not Home, to have the ability to join a domain controller in the upcoming steps.
 
 ### Install Attacker VM:
 
