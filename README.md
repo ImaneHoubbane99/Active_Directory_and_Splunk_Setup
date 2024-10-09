@@ -33,7 +33,7 @@ For this task, I used **draw.io** to design the network architecture. The setup 
 - **Backup and Recovery**: Implement a backup system for critical data (especially for the Active Directory database) to ensure disaster recovery.
 - **Encryption**: Ensure communication between the servers and hosts is encrypted to prevent eavesdropping or data theft.
 
-![image](https://github.com/user-attachments/assets/8e98b4ba-0b79-45f3-8c5d-04ba19c967e5)
+![architecture drawio](https://github.com/user-attachments/assets/0060243d-269b-46f6-a082-0c59512007fe)
 
 This architecture provides a robust foundation for both operational Active Directory services and security monitoring, with Splunk and Sysmon enhancing the security and visibility of system activities.
 
@@ -239,24 +239,44 @@ At the end, if you install Sysmon and the Splunk Forwarder on the target VM, you
    ![User Authentication](https://github.com/user-attachments/assets/1456f9ac-4ca8-4c63-bd0f-b05b8fea5459)
 
 ## Step6: Generate brute force attack using Kali linux
-- change ip address to 192.168.10.250/24 192.168.10.1 8.8.8.8 disconnect ad connect to take the change
-![image](https://github.com/user-attachments/assets/a1b528d8-9d3a-42b7-a952-605ea467711a)
 
-- upgrade repo : sudo apt-get update & sudo apt-get upgrade
-- create a new repo : mkdir ad-project
-- install crowbar:  sudo apt-get install -y crowbar
-- sudo gunzip /usr/sharewordlists/rockyou
-- cp rockyou ad-project
-- using just first 20 passwords : 
+### **Change the IP address** to `192.168.10.250/24`, set the gateway to `192.168.10.1`, and set the DNS server to `8.8.8.8`. After making the changes, disconnect and reconnect the network to apply the changes.
+
+  ![Change IP Address](https://github.com/user-attachments/assets/a1b528d8-9d3a-42b7-a952-605ea467711a)
+
+### **Upgrade the repository**:
+  ```bash
+  sudo apt-get update && sudo apt-get upgrade
+```
+### **Create a new project repository**:
+  ```bash
+  mkdir ad-project
+```
+
+### **Install Crowbar**:
+  ```bash
+sudo apt-get install -y crowbar
+```
+### **Extract the rockyou wordlist & copy the rockyou wordlist to the project folder**:
+
+  ```bash
+sudo gunzip /usr/share/wordlists/rockyou.txt.gz & cp /usr/share/wordlists/rockyou.txt ad-project/
+```
+### **Using only the first 20 passwords from the rockyou wordlist**:
+
   ![image](https://github.com/user-attachments/assets/e33b5931-d2b3-4fd8-982d-d699660efb99)
 
-- allow remote connection for both users on target machine
+### **Allow remote connections for both users on the target machine**:
+
 - ![image](https://github.com/user-attachments/assets/07c7718c-d8bf-4ece-bbb8-b9807a1d9b24)
 
-- Brute force attack : 
+### **Perform a brute force attack using Crowbar**:
   ![image](https://github.com/user-attachments/assets/b3f30949-40d6-4df6-b990-4115bb46b9a1)
 
-- view telemetry via splunk : index=endpoint tsmith go to eventcode and multiple with 4625 (failed log on)
+### **View telemetry via Splunk**:
+  
+  ![image](https://github.com/user-attachments/assets/81f33168-48f7-4333-a7c3-acc56927ca45)
+
 
 
 
