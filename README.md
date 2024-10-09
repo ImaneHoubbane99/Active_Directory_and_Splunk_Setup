@@ -37,7 +37,7 @@ For this task, I used **draw.io** to design the network architecture. The setup 
 - **Backup and Recovery**: Implement a backup system for critical data (especially for the Active Directory database) to ensure disaster recovery.
 - **Encryption**: Ensure communication between the servers and hosts is encrypted to prevent eavesdropping or data theft.
 
-![architecture drawio](https://github.com/user-attachments/assets/0060243d-269b-46f6-a082-0c59512007fe)
+![architecture drawio (1)](https://github.com/user-attachments/assets/91d7afff-15bb-48b0-9de5-89ec6224ee8b)
 
 This architecture provides a robust foundation for both operational Active Directory services and security monitoring, with Splunk and Sysmon enhancing the security and visibility of system activities.
 
@@ -73,7 +73,7 @@ Download and install **VirtualBox** using the following link:
 #### Additional Recommendations:
 - Default credentials are: kali/kali
    
-### Install Active Directory server: stantard evaluation/50Gb
+### Install Active Directory server: 
 
 1. Download the **Windows server 2022 ISO** for the target VM using the following link:
    - [Windows server 2022 Download](https://www.microsoft.com/en-ca/software-download/windows10)
@@ -82,7 +82,7 @@ Download and install **VirtualBox** using the following link:
 
 3. Follow the installation steps to set up Windows 10 as the target machine.
 
-### Install Splunk server: 100Gb
+### Install Splunk server: 
 
 1. Download the **Ubuntu server** for the target VM using the following link:
    - [Ubuntu server Download](https://www.microsoft.com/en-ca/software-download/windows10)
